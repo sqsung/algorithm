@@ -1,0 +1,10 @@
+let activities = [
+  ['Work', 9]
+  ['Eat', 1]
+  ['Commute', 3]
+  ['Play game', 1]
+  ['Study', 5]
+  ['Exercise', 6]
+]
+
+console.table(activities);
