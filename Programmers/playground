@@ -1,10 +1,18 @@
-let activities = [
-  ['Work', 9]
-  ['Eat', 1]
-  ['Commute', 3]
-  ['Play game', 1]
-  ['Study', 5]
-  ['Exercise', 6]
-]
+function solution(s) {
+  let answer = '',
+      arr = s.split(' ');
+  
+  for(let i = 0; i < arr.length; i++) {
+      for(let j = 0; j < arr[i].length; j++) {
+          if (j === 0 || j % 2 === 0) {
+              answer += arr[i][j].toUpperCase();
+          } else {
+              answer+= arr[i][j];
+          }
+      }
+  answer += ' ';
+  }
+  return answer.split(' ').slice(0, -1).join(' ');
+}
 
-console.table(activities);
+console.log(solution("lol is this working"));
