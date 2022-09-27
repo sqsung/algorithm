@@ -1,7 +1,9 @@
 # algorithm-practice
 
-Using javascript to solve algorithm problems found on 
-1. baekjoon (labeled b_...) 
-2. programmers (labeled p_...)
-3. leetcode (labeled l_...)
-4. zerobase (labeled z_...)
+🚀SQSUNG Algorithm Practice Log🚀
+---
+<b>Using only javascript to solve algorithm problems found on:</b> 
+- baekjoon (https://www.acmicpc.net/)
+- programmers (https://programmers.co.kr/)
+- leetcode (https://leetcode.com/)
+- zerobase (<i>undisclosed</i>)
