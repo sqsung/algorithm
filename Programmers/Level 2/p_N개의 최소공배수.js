@@ -2,7 +2,7 @@
 
 function solution(arr) {
   let max = Math.max(...arr);
-  let count = 0, x = 0;
+  let x = 0;
 
   while(true){
     x += max;
