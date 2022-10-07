@@ -1,17 +1,10 @@
 function solution(phone_number) {
     let answer = '',
-        preAns = [], 
-        arr = phone_number.split(''),
-        len = arr.length; 
+        arr = phone_number.split('');
     
-    for(let i = 0; i < len; i++) {
-        if (i < (len - 4)) {
-            preAns.push("*");
-        } else {
-            preAns.push(arr[i]);
-        }
-        
-        answer = preAns.join("");
+    for(let i = 0; i < arr.length; i++) {
+        if (i < (arr.length - 4)) answer += '*';
+        else answer += arr[i];
     }
     
     return answer;
