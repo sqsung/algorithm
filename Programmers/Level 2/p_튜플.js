@@ -5,13 +5,11 @@ function solution(s) {
 
     for(let i = 1; i < s.length - 1; i++) {
         if(s[i] === '{' || s[i] === ' ') continue;
-        
         if(s[i] === '}') {
             result.push(temp);
             temp = [];
         }
         if(/\d/.test(s[i]) === true && (s[i + 1] !== ',' || s[i + 1] !== '}')) tempStr += s[i];
-
         if(/\d/.test(s[i]) === true && (s[i + 1] === ',' || s[i + 1] === '}')) {
             temp.push(tempStr);
             tempStr = '';
@@ -19,7 +17,7 @@ function solution(s) {
     }
 
     result.sort((a, b) => a.length - b.length);
-    
+
     for(let i = 0; i < result.length; i++) {
         for(let j = 0; j < result[i].length; j++) {
             if(i === 0) answer.push(Number(result[0][0]));
@@ -29,14 +27,10 @@ function solution(s) {
             }
         }
     }
-
     return answer;
 }
 
-console.log(solution("{{20,111},{111}}"));
-console.log(solution("{{123}}"));
-// console.log(solution("{{1,2,3},{2,1},{1,2,4,3},{2}}"));
 
-/*
-"{{1,2,3},{2,1},{1,2,4,3},{2}}"	
-*/
+// console.log(solution("{{20,111},{111}}"));
+// console.log(solution("{{123}}"));
+// console.log(solution("{{1,2,3},{2,1},{1,2,4,3},{2}}"));
