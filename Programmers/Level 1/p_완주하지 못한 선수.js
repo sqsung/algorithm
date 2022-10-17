@@ -10,7 +10,8 @@ function solution(participant, completion) {
 }
 
 
-/* 2nd try -> correct, but fails the efficiency test. tried with localeCompare and worked. 
+/*
+2nd try -> correct, but fails the efficiency test. tried with localeCompare and worked. 
 function solution(participant, completion) {
     participant.sort((a,b) => a.localeCompare(b));
     completion.sort((a,b) => a.localeCompare(b));
@@ -19,8 +20,10 @@ function solution(participant, completion) {
         if(participant[i] !== completion[i]) return participant[i];
     }
 }
+*/
 
-/* 1st try -> correct, but doesn't pass the efficiency test 
+/* 
+1st try -> correct, but doesn't pass the efficiency test 
 function solution(participant, completion) {
     let len = completion.length; 
 
