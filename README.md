@@ -6,4 +6,3 @@
 - baekjoon (https://www.acmicpc.net/)
 - programmers (https://programmers.co.kr/)
 - leetcode (https://leetcode.com/)
-- zerobase (<i>undisclosed</i>)
