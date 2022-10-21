@@ -1,0 +1,1 @@
+const solution = arr => arr.sort((a,b) => b - a).slice(0, 2).reduce((a, c) => a * c);

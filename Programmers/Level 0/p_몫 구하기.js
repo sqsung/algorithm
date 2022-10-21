@@ -1,0 +1,1 @@
+const solution = (a, b) => Math.floor(a / b);

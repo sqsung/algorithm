@@ -1,0 +1,1 @@
+const solution = (str, n) => str.split('').map(letter => letter.repeat(n)).join('');

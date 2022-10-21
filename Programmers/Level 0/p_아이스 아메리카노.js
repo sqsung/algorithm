@@ -1,0 +1,1 @@
+const solution = money => [parseInt(money/5500), Math.abs(parseInt(money/5500) * 5500 - money)];

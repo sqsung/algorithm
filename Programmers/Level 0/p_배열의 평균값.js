@@ -1,0 +1,1 @@
+const solution = n => n.reduce((cur, idx) => cur + idx, 0)/n.length;

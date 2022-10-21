@@ -1,0 +1,1 @@
+const solution = list => [list.filter(n => n%2 === 0).length, list.filter(n => n%2 !== 0).length];

@@ -1,0 +1,1 @@
+let solution = (s1, s2) => s1.length > s2.length ? s1.filter(x => s2.includes(x)).length : s2.filter(x => s1.includes(x)).length; 

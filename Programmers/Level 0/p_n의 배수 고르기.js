@@ -1,0 +1,1 @@
+let solution = (n, numlist) => numlist.filter(x => x%n === 0);

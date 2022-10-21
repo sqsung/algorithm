@@ -1,0 +1,1 @@
+let solution = list => list.reverse();

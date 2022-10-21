@@ -1,0 +1,1 @@
+const solution = arr => arr[0] < 0 && arr[1] < 0 ? 3 : arr[0] < 0 && arr[1] > 0 ? 2 : arr[0] > 0 && arr[1] < 0 ? 4 : 1;

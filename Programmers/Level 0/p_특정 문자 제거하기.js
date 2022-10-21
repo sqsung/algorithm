@@ -1,0 +1,1 @@
+const solution = (str, letter) => str.split('').filter(x => x != letter).join('');
