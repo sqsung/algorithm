@@ -1,0 +1,1 @@
+const solution = str => str.split('').filter(x => x == 0 || x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9).map(x => Number(x)).sort((a,b) => a-b);

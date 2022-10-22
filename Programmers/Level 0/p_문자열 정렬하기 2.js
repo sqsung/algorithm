@@ -1,0 +1,1 @@
+const solution = str => str.split('').map(x => x.toLowerCase()).sort().join('');

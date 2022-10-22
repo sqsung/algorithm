@@ -1,0 +1,1 @@
+let solution = p => p >= 500000 ? parseInt(p - (p*0.2)) : p >= 300000 ? parseInt(p - (p*0.1)) : p >= 100000 ? parseInt(p - (p * 0.05)) : p;

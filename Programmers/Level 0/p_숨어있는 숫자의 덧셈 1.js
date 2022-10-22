@@ -1,0 +1,1 @@
+let solution = str => str.split('').filter(num => /\d/.test(num)).reduce((a, c) => Number(a)+Number(c));

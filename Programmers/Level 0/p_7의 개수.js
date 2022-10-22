@@ -1,0 +1,1 @@
+let solution = arr => arr.join('').toString().split('').filter(x => x === '7').length;
