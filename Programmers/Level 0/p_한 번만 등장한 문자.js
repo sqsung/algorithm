@@ -1,0 +1,1 @@
+let solution = s => s.split('').filter(el => s.indexOf(el) === s.lastIndexOf(el)).sort().join('');
