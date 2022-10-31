@@ -1,7 +1,5 @@
 let input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
 let num = Number(input[0]);
-let count = 0;
-let sum = 0;
 
 for (let i = 1; i <= num; i++) {
   let count = 0;
@@ -13,6 +11,6 @@ for (let i = 1; i <= num; i++) {
 
     sum += count;
   }
-  
+
   console.log(sum);
 }
