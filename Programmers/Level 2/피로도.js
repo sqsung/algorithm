@@ -6,8 +6,6 @@ function solution(k, dungeons) {
 
     function DFS(k, dungeons, visited, count) {
         arr.push(count);
-        // console.log(arr);
-        // console.log(visited);
         for (let i = 0; i < dungeons.length; i++) {
             if (!visited[i] && k >= dungeons[i][0]) {
                 visited[i] = true;
@@ -17,7 +15,6 @@ function solution(k, dungeons) {
             }
         }
     }
-
     DFS(k, dungeons, visited, 0);
     return Math.max(...arr);
 }
