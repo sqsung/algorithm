@@ -1,9 +1,7 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/49993
 
 function solution(skill, trees) {
-    let answer = 0;
     let tmp = [];
-    let res = [];
     let sk = skill.split('');
     
     for (let i = 0; i < trees.length; i++) {
