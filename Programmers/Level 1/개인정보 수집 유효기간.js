@@ -1,33 +1,27 @@
-function solution(today, terms, privacies) {
-    const $TODAY = today.split(".").map((dateComponent) => +dateComponent);
+const solution = (today, terms, privacies) => {
+    const TODAY = today.split(".").map((dateComponent) => +dateComponent);
 
-    const $TERMS = terms.map((term) => {
-        const [type, months] = term.split(" ");
+    const TERMS = terms.map((TERM) => {
+        const [type, months] = TERM.split(" ");
         return { type: type, deleteAfter: +months };
     });
 
-    const $PRIVACIES = privacies.map((privacy) => {
-        const [registeredDate, type] = privacy.split(" ");
-        return {
-            type: type,
-            registered: registeredDate
-                .slice(0, 10)
-                .split(".")
-                .map((num) => +num),
-        };
+    const PRIVACIES = privacies.map((PRIVACY) => {
+        const [registeredDate, type] = PRIVACY.split(" ");
+        return { type: type, registered: registeredDate.split(".").map((num) => +num) };
     });
 
-    const TO_DELETE = $PRIVACIES.map(($PRIVACY, idx) => {
-        const [TARGET] = $TERMS.filter(($TERM) => $TERM.type === $PRIVACY.type);
+    const TO_DELETE = PRIVACIES.map((PRIVACY, idx) => {
+        const [TARGET] = TERMS.filter((TERM) => TERM.type === PRIVACY.type);
+        const Y = (TODAY[0] - PRIVACY.registered[0]) * 12;
+        const M = TODAY[1] - PRIVACY.registered[1];
+        const D = TODAY[2] - PRIVACY.registered[2];
 
-        const Y = ($TODAY[0] - $PRIVACY.registered[0]) * 12;
-        const M = $TODAY[1] - $PRIVACY.registered[1];
-        const D = $TODAY[2] - $PRIVACY.registered[2];
         return Y + M > TARGET.deleteAfter ? idx + 1 : Y + M === TARGET.deleteAfter && D >= 0 ? idx + 1 : "X";
     });
 
     return TO_DELETE.filter((deletables) => deletables !== "X");
-}
+};
 
 // console.log(
 //     solution("2022.05.19", ["A 6", "B 12", "C 3"], ["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"])

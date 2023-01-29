@@ -56,7 +56,7 @@ const fLast = spl => {
 const solution = newId => fLast(f5b(f5(f0(f4(f3(f2(f1(newId.split(''))))))))).join('');
 
 
-// 2. Normal regex solution 
+// 2. Normal regexp solution 
 // function solution(new_id) {
 //     const answer = new_id
 //         .toLowerCase() // 1
