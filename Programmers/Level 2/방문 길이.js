@@ -5,36 +5,31 @@
  */
 
 const solution = dirs => {
-  const directions = [...dirs];
-  const movements = { U: [0, 1], D: [0, -1], L: [-1, 0], R: [1, 0] };
-  const visited = [];
+  const _dirs = [...dirs];
+  const moves = { U: [0, 1], D: [0, -1], L: [-1, 0], R: [1, 0] };
+
+  let visited = [];
   let current = [0, 0];
   let uniqueMoves = 0;
 
-  directions.forEach(dir => {
-    const move = movements[dir];
-
-    if (Math.abs(current[0] + move[0]) > 5 || Math.abs(current[1] + move[1]) > 5) return;
+  _dirs.forEach(dir => {
+    if (Math.abs(current[0] + moves[dir][0]) > 5 || Math.abs(current[1] + moves[dir][1]) > 5) return;
 
     const start = current;
-    const end = [current[0] + move[0], current[1] + move[1]];
+    const end = [current[0] + moves[dir][0], current[1] + moves[dir][1]];
+    const path = start.join('') + end.join('');
     current = end;
 
-    const path = [start.join(''), end.join('')];
-    const pathValidity1 = visited.filter(passed => passed[0] === path[0] && passed[1] === path[1]).length;
-    const pathValidity2 = visited.filter(passed => passed[1] === path[0] && passed[0] === path[1]).length;
+    if (visited.includes(path)) return;
 
-    if (pathValidity1 || pathValidity2) return;
-
-    visited.push(path);
+    visited = [...visited, path, end.join('') + start.join('')];
     uniqueMoves++;
   });
 
   return uniqueMoves;
 };
 
-/* Test Cases
+// Test Cases:
 // console.log(solution('ULURRDLLU'));
 // console.log(solution('LULLLLLLU'));
-// console.log(solution('UUUUUU'));
-*/
+// console.log(solution('UUUUUUUUUUU'));
