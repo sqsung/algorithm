@@ -5,25 +5,22 @@
  */
 
 const solution = files => {
-  const getParts = arrayOfFiles =>
-    arrayOfFiles.map((file, idx) => {
-      const part = { head: '', number: '', tail: '', idx };
-      let finished = false;
+  const _files = files.map((file, idx) => {
+    const part = { head: '', number: '', tail: '', idx };
+    let finished = false;
 
-      [...file].forEach((letter, idx) => {
-        if (finished) return;
+    [...file].forEach((letter, idx) => {
+      if (finished) return;
 
-        if (/[0-9]/.test(letter)) part.number += letter;
-        else part.head += letter.toLowerCase();
+      if (/[0-9]/.test(letter)) part.number += letter;
+      else part.head += letter.toLowerCase();
 
-        finished = /[0-9]/.test(letter) && (!/[0-9]/.test(file[idx + 1]) || part.number.length >= 5) ? true : false;
-      });
-
-      part.number = +part.number;
-      return part;
+      finished = /[0-9]/.test(letter) && (!/[0-9]/.test(file[idx + 1]) || part.number.length >= 5) ? true : false;
     });
 
-  const _files = getParts(files);
+    part.number = +part.number;
+    return part;
+  });
 
   _files.sort((a, b) => {
     if (a.head < b.head) return -1;
