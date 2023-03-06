@@ -6,15 +6,13 @@
 
 const solution = files => {
   const _files = files.map((file, idx) => {
-    const part = { head: '', number: '', tail: '', idx };
+    const part = { head: '', number: '', idx };
     let finished = false;
 
     [...file].forEach((letter, idx) => {
       if (finished) return;
 
-      if (/[0-9]/.test(letter)) part.number += letter;
-      else part.head += letter.toLowerCase();
-
+      /[0-9]/.test(letter) ? (part.number += letter) : (part.head += letter.toLowerCase());
       finished = /[0-9]/.test(letter) && (!/[0-9]/.test(file[idx + 1]) || part.number.length >= 5) ? true : false;
     });
 
