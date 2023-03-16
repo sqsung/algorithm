@@ -16,8 +16,8 @@ const romans = {
 
 // prettier-ignore
 const romanToInt = s => {
-  Object.keys(romans).forEach(numeral => (s = s.replace(new RegExp(`${numeral}`, 'g'), `${romans[numeral]},`)));
-  return s.split(',').map(num => +num).reduce((a, c) => a + c);
+  Object.keys(romans).map(numeral => (s = s.replaceAll(numeral, `${romans[numeral]},`)));
+  return s.split(',').reduce((a, c) => a + +c, 0);
 };
 
 // Test Cases:
