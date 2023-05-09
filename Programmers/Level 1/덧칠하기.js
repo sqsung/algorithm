@@ -12,6 +12,3 @@ const solution = (_, roller, sections) => {
 
   return painted.filter(res => res !== 'X').length;
 };
-
-console.log(solution(8, 4, [2, 3, 6]));
-console.log(solution(5, 4, [1, 3]));
