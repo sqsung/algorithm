@@ -1,7 +1,9 @@
-const input = '(()[[]])([])';
-const input2 = '[][]((])';
-const input3 = '(([[)]](';
-const input4 = '(((((';
+// const input = '(()[[]])([])';
+// const input2 = '[][]((])';
+// const input3 = '(([[)]](';
+// const input4 = '(((((';
+
+const input = require('fs').readFileSync('/dev/stdin').toString().trim();
 
 const getPoints = parens => {
   const stack = [];
@@ -40,6 +42,3 @@ const getPoints = parens => {
 };
 
 console.log(getPoints(input));
-// console.log(getPoints(input2));
-// console.log(getPoints(input3));
-console.log(getPoints(input4));
