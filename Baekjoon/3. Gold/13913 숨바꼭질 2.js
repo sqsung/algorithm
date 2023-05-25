@@ -24,16 +24,18 @@ const moveSubin = N => {
   }
 };
 
-const minimunTime = moveSubin(subin);
+const getOrder = () => {
+  const order = [sister];
+  let previous = path[sister];
 
-const order = [sister];
-let previous = path[sister];
+  for (let i = 0; i < minimunTime; i++) {
+    order.push(previous);
 
-for (let i = 0; i < minimunTime; i++) {
-  order.push(previous);
+    previous = path[previous];
+  }
 
-  previous = path[previous];
-}
+  return order.reverse().join(' ');
+};
 
-console.log(minimunTime);
-console.log(order.reverse().join(' '));
+console.log(moveSubin(subin));
+console.log(getOrder());
