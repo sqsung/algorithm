@@ -18,10 +18,5 @@ while (input.length) {
 tcs.forEach(tc => {
   const values = Object.values(tc);
 
-  if (values.length === 1) {
-    console.log(values[0]);
-    return;
-  }
-
   console.log(values.reduce((a, c) => a * (c + 1), 1) - 1);
 });
