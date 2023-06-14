@@ -17,14 +17,6 @@ class Queue {
   isEmpty() {
     return this.head === this.tail;
   }
-
-  hasCoordinates(x, y) {
-    for (let i = 0; i < this.q.length; i++) {
-      if (this.q[i].includes(x) && this.q[i].includes(y)) return false;
-    }
-
-    return false;
-  }
 }
 
 const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
@@ -57,29 +49,19 @@ const isWithinThousand = (x1, y1, x2, y2) => {
 
 const isHappy = tc => {
   const { home, storeCount, stores, fetival } = tc;
-
-  const [festivalX, festivalY] = fetival;
-  const [homeX, homeY] = home;
-  const queue = new Queue(home);
   const visited = Array.from({ length: storeCount }, () => false);
+  const [festivalX, festivalY] = fetival;
+  const queue = new Queue(home);
 
   while (!queue.isEmpty()) {
     const [x, y] = queue.shift();
 
-    if (isWithinThousand(x, y, festivalX, festivalY)) {
-      return 'happy';
-    }
+    if (isWithinThousand(x, y, festivalX, festivalY)) return 'happy';
 
     stores.forEach((store, idx) => {
       const [storeX, storeY] = store;
 
-      if (
-        visited[idx] ||
-        (storeX === x && storeY === y) ||
-        (storeX === homeX && storeY === homeY) ||
-        !isWithinThousand(x, y, storeX, storeY)
-      )
-        return;
+      if (visited[idx] || !isWithinThousand(x, y, storeX, storeY)) return;
 
       queue.push(store);
       visited[idx] = true;
