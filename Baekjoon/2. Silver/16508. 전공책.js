@@ -4,7 +4,7 @@
 // const input = ['BAKEJOON', '3', '25000 JAVA', '10000 OOP', '30000 BINARYCHECK']; // -> 65000
 // const input = ['JAVA', '2', '30000 CPLUSPLUS', '25000 PYTHON']; // -> -1
 
-// const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 const getMinPrice = input => {
   const goal = input.shift().trim();
