@@ -1,64 +1,68 @@
 // TC 1:
-// const info = '4 5 1';
-// const edges = ['1 2', '1 3', '1 4', '2 4', '3 4'];
+// const info = "4 5 1";
+// const edges = ["1 2", "1 3", "1 4", "2 4", "3 4"];
 
 // TC2:
-// const info = '5 5 3';
-// const edges = ['5 4', '5 2', '1 2', '3 4', '3 1'];
+// const info = "5 5 3";
+// const edges = ["5 4", "5 2", "1 2", "3 4", "3 1"];
 
-const [info, ...edges] = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-const [N, _, start] = info.split(' ');
-
-const graph = Array.from({ length: +N + 1 }).map(() => []);
-const visited = Array.from({ length: +N + 1 }).fill(false);
-
-const dfsResults = [];
-const bfsResults = [];
+const [info, ...edges] = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
+const [N, _, start] = info.split(" ").map(value => +value);
+const graph = Array.from({ length: N + 1 }).map(() => []);
 
 edges.forEach(edge => {
-  const [from, to] = edge.split(' ');
+  const [node1, node2] = edge.split(" ").map(value => +value);
 
-  graph[from].push(+to);
-  graph[to].push(+from);
+  graph[node1].push(+node2);
+  graph[node2].push(+node1);
 });
 
-console.log(graph);
+graph.forEach(edge => edge.sort((a, b) => a - b));
 
-graph.forEach(c => c.sort((a, b) => a - b));
+const getDFSresults = node => {
+  const visited = Array.from({ length: N + 1 }).map(() => false);
+  const results = [];
 
-const dfs = node => {
-  if (visited[node]) return;
+  const dfs = node => {
+    if (visited[node]) return;
 
-  dfsResults.push(node);
-  visited[node] = true;
+    visited[node] = true;
+    results.push(node);
 
-  graph[node].forEach(connected => {
-    dfs(connected);
-  });
-};
-
-const bfs = node => {
-  const toVisit = [node];
-  let vertex;
-
-  while (toVisit.length) {
-    vertex = toVisit.shift();
-
-    if (visited[vertex]) continue;
-
-    visited[vertex] = true;
-
-    bfsResults.push(vertex);
-
-    graph[vertex].forEach(v => {
-      if (!visited[v]) toVisit.push(v);
+    graph[node].forEach(connectedNode => {
+      dfs(connectedNode);
     });
-  }
+  };
+
+  dfs(node);
+
+  return results;
 };
 
-dfs(+start);
-visited.fill(false);
-bfs(+start);
+const getBFSresults = node => {
+  const visited = Array.from({ length: N + 1 }).map(() => false);
+  const queue = [node];
+  const results = [];
 
-console.log(dfsResults.join(' '));
-console.log(bfsResults.join(' '));
+  while (queue.length) {
+    const node = queue.shift();
+
+    if (visited[node]) continue;
+
+    visited[node] = true;
+    results.push(node);
+
+    graph[node].forEach(connectedNode => queue.push(connectedNode));
+  }
+
+  return results;
+};
+
+const solution = node => {
+  const dfs = getDFSresults(node);
+  const bfs = getBFSresults(node);
+
+  return dfs.join(" ") + "\n" + bfs.join(" ");
+};
+
+console.log(solution(start));
