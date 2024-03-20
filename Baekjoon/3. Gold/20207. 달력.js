@@ -8,6 +8,7 @@
  * const N = "5";
  * const input = ["1 9", "8 9", "4 6", "3 4", "2 5"]; // answer: 36
  */
+
 const [, ...input] = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
 const schedules = {};
 
